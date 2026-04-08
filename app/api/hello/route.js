@@ -1,8 +1,12 @@
 export async function GET() {
-    const secret = process.env.MY_SECRET_KEY;
+    const apiKey = process.env.MY_SECRET_KEY;
   
     return Response.json({
-      message: "Hello from Cloudflare Edge!",
-      secretExists: !!secret
+      status: "success",
+      message: "Welcome to my Cloudflare Edge API!",
+      timestamp: new Date().toISOString(),
+      timezone: "UTC",
+      deployedOn: "Cloudflare Edge Network",
+      secretConfigured: !!apiKey
     });
   }
